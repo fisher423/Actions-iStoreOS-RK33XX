@@ -33,7 +33,7 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 
 # 移植以下机型
 # RK3399 R08
-# RK3399 TPM312
+# RK3399 TPM312 fine3399
 
 echo -e "\\ndefine Device/rk3399_r08
   DEVICE_VENDOR := RK3399
@@ -56,6 +56,15 @@ echo -e "\\ndefine Device/rk3399_tpm312
 endef
 TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
 
+echo -e "\\ndefine Device/rk3399_fine3399
+  DEVICE_VENDOR := RK3399
+  DEVICE_MODEL := fine3399
+  SOC := rk3399
+  SUPPORTED_DEVICES := rk3399,fine3399
+  UBOOT_DEVICE_NAME := fine3399-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+endef
+TARGET_DEVICES += rk3399_fine3399" >> target/linux/rockchip/image/armv8.mk
 
 
 
