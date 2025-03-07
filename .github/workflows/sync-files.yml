@@ -3,6 +3,7 @@ name: Sync Files
 on:
   repository_dispatch:
   workflow_dispatch:
+  on
   schedule:
     - cron: 55 15 * * *
 
