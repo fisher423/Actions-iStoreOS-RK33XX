@@ -7,19 +7,19 @@
 # Blog: https://p3terx.com
 #===============================================
 
-echo -e "\\ndefine Device/lemonPi_pi1
-\$(call Device/rk3588)
-  DEVICE_MODEL := lemonpi-pi1
-  SUPPORTED_DEVICES += lemonpi,lemonpi-pi1
-  DEVICE_DTS := rk3588-lemonpi-pi1
+echo -e "\\ndefine Device/fine_3399
+\$(call Device/rk3399)
+  DEVICE_MODEL := fine-3399
+  SUPPORTED_DEVICES += fine,fine-3399
+  DEVICE_DTS := rk3399-fine-3399
   DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal
 endef
-TARGET_DEVICES += lemonPi_pi1" >> target/linux/rockchip/image/rk35xx.mk
+TARGET_DEVICES += fine_3399" >> target/linux/rockchip/image/rk33xx.mk
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3588-lemonpi-pi1.dts target/linux/rockchip/dts/rk3588
-ls target/linux/rockchip/dts/rk3588
-cat target/linux/rockchip/image/rk35xx.mk
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts target/linux/rockchip/dts/rk3399
+ls target/linux/rockchip/dts/rk3399
+cat target/linux/rockchip/image/rk33xx.mk
 
 
 
