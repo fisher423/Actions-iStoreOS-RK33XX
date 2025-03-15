@@ -12,7 +12,7 @@ echo -e "\\ndefine Device/fine_3399
   DEVICE_MODEL := fine3399
   SUPPORTED_DEVICES += fine,fine-3399
   DEVICE_DTS := rk3399-fine-3399
-  DEVICE_PACKAGES := kmod-nvme kmod-scsi-core kmod-hwmon-pwmfan kmod-thermal
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
 TARGET_DEVICES += fine_3399" >> target/linux/rockchip/image/rk33xx.mk
 
