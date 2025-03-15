@@ -81,6 +81,7 @@ define Device/rk3399_fine3399
   SUPPORTED_DEVICES := rk3399,fine3399
   UBOOT_DEVICE_NAME := fine3399-rk3399
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-usb-net-rtl8152 ethtool
 endef
 TARGET_DEVICES += rk3399_fine3399
 
