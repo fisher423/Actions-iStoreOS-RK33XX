@@ -8,7 +8,7 @@
 #include "rk3399-op1-opp.dtsi"
 
 / {
-	model = "RUMU3F Fine3399";
+	model = "Fine3399";
 	compatible = "rockchip,rk3399";
 
 	aliases {
