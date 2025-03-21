@@ -26,7 +26,11 @@ sed -i "s/:443/:4443/g" package/network/services/uhttpd/files/uhttpd.config
 cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 # ls package/base-files/files/etc/
 
-
+# 在设备配置段落附近检查
+sed -i '/^define Device/rk3399_fine3399/,/^endef/{
+/^define Device/rk3399_fine3399/n
+/TARGET_DEVICE_PACKAGES/d
+}' target/linux/rockchip/image/armv8.mk
 
 
 
