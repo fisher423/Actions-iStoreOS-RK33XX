@@ -167,8 +167,8 @@ CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 # CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_radxa_rock-pi-4a is not set
 # CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rocktech_mpc1903 is not set
 # CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rongpin_king3399 is not set
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rumu3f_fine-3399=y
-# CONFIG_TARGET_DEVICE_PACKAGES_rockchip_armv8_DEVICE_rumu3f_fine-3399=""
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rumu3f_fine-3399=y
+CONFIG_TARGET_DEVICE_PACKAGES_rockchip_armv8_DEVICE_rumu3f_fine-3399=""
 # CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_scensmart_sv901-eaio is not set
 # CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_seewo_srcm3588-sw is not set
 # CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_seewo_srcm3588-io is not set
