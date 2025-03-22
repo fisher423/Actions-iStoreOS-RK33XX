@@ -41,6 +41,12 @@ define U-Boot/fine3399-rk3399
   ATF:=rk3399_bl31.elf
 endef
 
+define U-Boot/fine3399-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=RK3399 Fine3399
+  BUILD_DEVICES:= \
+    rk3399_fine3399
+endef
 
 
 
