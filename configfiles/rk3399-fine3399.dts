@@ -9,8 +9,8 @@
 
 
 / {
-	model = "RUMU3F Fine3399";
-	compatible = "rumu3f,fine3399","rockchip,rk3399";
+	model = "RK3399 Fine3399";
+	compatible = "rk3399,fine3399","rockchip,rk3399";
 
 	aliases {
 		ethernet0 = &gmac;
