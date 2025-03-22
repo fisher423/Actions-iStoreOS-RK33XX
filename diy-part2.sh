@@ -8,7 +8,7 @@
 #===============================================
 
 # 删除引起iproute2依赖编译报错的补丁
-[ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
+# [ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
 
 # update ubus git HEAD
 cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
@@ -41,7 +41,6 @@ echo -e "\\ndefine Device/rk3399_fine3399
   SOC := rk3399
   SUPPORTED_DEVICES := rk3399,fine3399
   UBOOT_DEVICE_NAME := fine3399-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-bin | gzip | append-metadata
   DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
 endef
 TARGET_DEVICES += rk3399_fine3399" >> target/linux/rockchip/image/armv8.mk
@@ -73,7 +72,7 @@ fi
 
 
 # 复制defconfig配置文件到u-boot目录里面
-cp -f $GITHUB_WORKSPACE/configfiles/r08-rk3399_defconfig package/boot/uboot-rockchip/src/configs/r08-rk3399_defconfig
+# cp -f $GITHUB_WORKSPACE/configfiles/r08-rk3399_defconfig package/boot/uboot-rockchip/src/configs/r08-rk3399_defconfig
 # cp -f $GITHUB_WORKSPACE/configfiles/tpm312-rk3399_defconfig package/boot/uboot-rockchip/src/configs/tpm312-rk3399_defconfig
 cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine3399-rk3399_defconfig
 
