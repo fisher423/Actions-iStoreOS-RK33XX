@@ -10,14 +10,11 @@ PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_HASH:=skip
 
-PKG_MAINTAINER:=Sarah Maedel <openwrt@tbspace.de>
-
-UBOOT_USE_BINMAN:=1
-UBOOT_USE_INTREE_DTC:=1
+PKG_MAINTAINER:=Tobias Maedel <openwrt@tbspace.de>
 
 include $(INCLUDE_DIR)/u-boot.mk
 include $(INCLUDE_DIR)/package.mk
-include ../arm-trusted-firmware-rockchip/atf-version.mk
+include ../arm-trusted-firmware-rockchip-vendor/atf-version.mk
 
 define U-Boot/Default
   BUILD_TARGET:=rockchip
@@ -26,36 +23,21 @@ define U-Boot/Default
 endef
 
 
-
-
-
 # RK3399 boards
 
-
-
-define U-Boot/fine3399-rk3399
-  $(U-Boot/rk3399/Default)
-  NAME:=Fine 3399
+define U-Boot/fine-3399-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=Fine-3399
   BUILD_DEVICES:= \
     rumu3f_fine-3399
+  DEPENDS:=+PACKAGE_u-boot-fine3399-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
 endef
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 UBOOT_TARGETS := \
-  fine3399-rk3399 
+  fine-3399-rk3399 
   
   
 
