@@ -35,9 +35,20 @@ define U-Boot/fine3399-rk3399
   ATF:=rk3399_bl31.elf
 endef
 
+define U-Boot/r08-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=RK3399 R08
+  BUILD_DEVICES:= \
+    rk3399_r08
+  DEPENDS:=+PACKAGE_u-boot-r08-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
+endef
+
 
 UBOOT_TARGETS := \
-  fine3399-rk3399 
+  r08-rk3399 \
+  fine3399-rk3399
   
   
 
