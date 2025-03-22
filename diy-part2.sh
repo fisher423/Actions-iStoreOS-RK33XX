@@ -35,16 +35,16 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 # RK3399 TPM312
 
 
-echo -e "\\ndefine Device/rumu3f_fine-3399
+echo -e "\\ndefine Device/rk3399_fine3399
   DEVICE_VENDOR := RK3399
-  DEVICE_MODEL := FINE 3399
+  DEVICE_MODEL := fine3399
   SOC := rk3399
+  SUPPORTED_DEVICES := rk3399,fine3399
   UBOOT_DEVICE_NAME := fine3399-rk3399
   BOOT_FLOW := pine64-bin
   DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
-TARGET_DEVICES += RK3399_fine-3399" >> target/linux/rockchip/image/armv8.mk
+TARGET_DEVICES += RK3399_fine3399" >> target/linux/rockchip/image/armv8.mk
 
 
 
@@ -83,16 +83,16 @@ cp -f $GITHUB_WORKSPACE/configfiles/rk3399.dtsi target/linux/rockchip/armv8/file
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-opp.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3399-r08.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-r08.dts
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3399-tpm312.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-tpm312.dts
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine-3399.dts
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399-u-boot.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine-3399-u-boot.dtsi
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399-u-boot.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine3399-u-boot.dtsi
 
 
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399.dtsi
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-opp.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-opp.dtsi
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3399-r08.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-r08.dts
 # cp -f $GITHUB_WORKSPACE/configfiles/rk3399-tpm312.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-tpm312.dts
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399.dts
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399-u-boot.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399-u-boot.dtsi
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399-u-boot.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine3399-u-boot.dtsi
 
 
 
