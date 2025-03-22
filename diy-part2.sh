@@ -8,10 +8,10 @@
 #===============================================
 
 # 删除引起iproute2依赖编译报错的补丁
-[ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
+# [ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
 
 # update ubus git HEAD
-cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
+# cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
 
 # 近期istoreos网站文件服务器不稳定，临时增加一个自定义下载网址
 sed -i "s/push @mirrors, 'https:\/\/mirror2.openwrt.org\/sources';/&\\npush @mirrors, 'https:\/\/github.com\/xiaomeng9597\/files\/releases\/download\/iStoreosFile';/g" scripts/download.pl
@@ -26,11 +26,6 @@ sed -i "s/:443/:4443/g" package/network/services/uhttpd/files/uhttpd.config
 cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 # ls package/base-files/files/etc/
 
-# 在设备配置段落附近检查
-sed -i '/^define Device/rk3399_fine3399/,/^endef/{
-/^define Device/rk3399_fine3399/n
-/TARGET_DEVICE_PACKAGES/d
-}' target/linux/rockchip/image/armv8.mk
 
 
 
@@ -65,11 +60,11 @@ TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
 
 # 复制和修改u-boot压缩包SHA256校验码，编译失败时注意看是不是这个引起的。
 cp -f $GITHUB_WORKSPACE/configfiles/uboot_Makefile package/boot/uboot-rockchip/Makefile
-cp -f $GITHUB_WORKSPACE/configfiles/u-boot.mk include/u-boot.mk
-sha256_value=$(wget -qO- "https://github.com/xiaomeng9597/files/releases/download/u-boot-2021.07/u-boot-2021.07.tar.bz2.sha" | awk '{print $1}')
-if [ -n "$sha256_value" ]; then
-sed -i "s/.*PKG_HASH:=.*/PKG_HASH:=$sha256_value/g" package/boot/uboot-rockchip/Makefile
-fi
+#cp -f $GITHUB_WORKSPACE/configfiles/u-boot.mk include/u-boot.mk
+#sha256_value=$(wget -qO- "https://github.com/xiaomeng9597/files/releases/download/u-boot-2021.07/u-boot-2021.07.tar.bz2.sha" | awk '{print $1}')
+#if [ -n "$sha256_value" ]; then
+#sed -i "s/.*PKG_HASH:=.*/PKG_HASH:=$sha256_value/g" package/boot/uboot-rockchip/Makefile
+#fi
 
 
 
