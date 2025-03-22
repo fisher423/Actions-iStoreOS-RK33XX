@@ -8,7 +8,7 @@
 #===============================================
 
 # 删除引起iproute2依赖编译报错的补丁
-# [ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
+[ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
 
 # update ubus git HEAD
 cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
@@ -37,11 +37,12 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 
 echo -e "\\ndefine Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
-  DEVICE_MODEL := FINE 3399
+  DEVICE_MODEL := FINE-3399
   SOC := rk3399
-  UBOOT_DEVICE_NAME := fine3399-rk3399
+  UBOOT_DEVICE_NAME := fine-3399-rk3399
   BOOT_FLOW := pine64-bin
   DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
 TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
 
