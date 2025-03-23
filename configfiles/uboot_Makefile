@@ -25,15 +25,9 @@ endef
 
 # RK3399 boards
 
-define U-Boot/rk3399/Default
-  BUILD_SUBTARGET:=armv8
-  DEPENDS:=+PACKAGE_u-boot-$(1):trusted-firmware-rk3399
-  ATF:=$(RK3399_ATF)
-endef
-
 define U-Boot/fine3399-rk3399
   BUILD_SUBTARGET:=armv8
-  NAME:=RK3399 Fine3399
+  NAME:=RK3399 FINE3399
   BUILD_DEVICES:= \
     rk3399_fine3399
   DEPENDS:=+PACKAGE_u-boot-fine3399-rk3399:arm-trusted-firmware-rockchip
@@ -41,20 +35,8 @@ define U-Boot/fine3399-rk3399
   ATF:=rk3399_bl31.elf
 endef
 
-define U-Boot/fine3399-rk3399
-  $(U-Boot/rk3399/Default)
-  NAME:=RK3399 Fine3399
-  BUILD_DEVICES:= \
-    rk3399_fine3399
-endef
-
-
-
 UBOOT_TARGETS := \
-  r08-rk3399 \
   fine3399-rk3399
-  
-  
 
 UBOOT_CONFIGURE_VARS += USE_PRIVATE_LIBGCC=yes
 
