@@ -9,7 +9,7 @@
 
 
 / {
-	model = "RK3399 Fine3399";
+	model = "RK3399 FINE3399";
 	compatible = "rockchip,rk3399-evb", "rk3399,fine3399","rockchip,rk3399";
 
 	aliases {
