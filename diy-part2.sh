@@ -42,8 +42,8 @@ echo -e "\\ndefine Device/rk3399_fine3399
   SUPPORTED_DEVICES := rk3399,fine3399
   UBOOT_DEVICE_NAME := fine3399-rk3399
   DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
-endef
-TARGET_DEVICES += rk3399_fine3399" >> target/linux/rockchip/image/armv8.mk
+  endef
+  TARGET_DEVICES += rk3399_fine3399" >> target/linux/rockchip/image/armv8.mk
 
 
 
