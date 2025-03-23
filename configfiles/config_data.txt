@@ -1,37 +1,8 @@
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=n
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=n
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4se=n
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rk3399_r08=y
-# CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rk3399_tpm312=n
-CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rk3399_fine3399=y
-CONFIG_MODULES=y
-CONFIG_HAVE_DOT_CONFIG=y
-CONFIG_HOST_OS_LINUX=y
-
-CONFIG_DEFAULT_TARGET_rockchip_armv8=y
-
-
-CONFIG_TARGET_rockchip=y
-
-CONFIG_TARGET_rockchip_armv8=y
-CONFIG_TARGET_MULTI_PROFILE=y
-
-
-# CONFIG_TARGET_rockchip_armv8_DEVICE_rk3399_fine3399=y
-
-
-#
-# Target Devices
-#
-# CONFIG_TARGET_ALL_PROFILES is not set
-CONFIG_TARGET_PER_DEVICE_ROOTFS=y
-
-
-
-CONFIG_PACKAGE_arm-trusted-firmware-rockchip-vendor=y
-# CONFIG_TARGET_DEVICE_PACKAGES_rockchip_armv8_DEVICE_rk3399_fine3399=""
-
-# end of Target Devices
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4se=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rk3399_r08=y
+CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_rk3399_tpm312=y
 
 CONFIG_PACKAGE_kmod-usb-printer=y
 CONFIG_PACKAGE_luci-app-usb-printer=y
