@@ -74,7 +74,9 @@ cp -f $GITHUB_WORKSPACE/configfiles/u-boot.mk include/u-boot.mk
 # if [ -n "$sha256_value" ]; then
 # sed -i "s/.*PKG_HASH:=.*/PKG_HASH:=$sha256_value/g" package/boot/uboot-rockchip/Makefile
 # fi
-
+# patch
+cp -f $GITHUB_WORKSPACE/configfiles/900-arm-add-dts-files.patch package/boot/uboot-rockchip/patches/900-arm-add-dts-files.patch
+cp -f $GITHUB_WORKSPACE/configfiles/900-arm64-boot-add-dts-files.patch target/linux/rockchip/patches-5.10/900-arm64-boot-add-dts-files.patch
 
 
 
