@@ -3,7 +3,9 @@ PKG_NAME ?= u-boot
 ifndef PKG_SOURCE_PROTO
 PKG_SOURCE = $(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL = \
-	https://github.com/fisher423/file/releases/download/u-boot-2025.01
+	https://github.com/fisher423/file/releases/download/u-boot-2021.07 \
+	https://fisher423.github.io/file \
+	https://raw.githubusercontent.com/fisher423/file/main
 endif
 
 PKG_BUILD_DIR = $(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
