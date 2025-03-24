@@ -60,7 +60,7 @@ echo -e "\\ndefine Device/rumu3f_fine-3399
   DEVICE_MODEL := Fine 3399
   SOC := rk3399
   SUPPORTED_DEVICES := RUMU3F,fine-3399
-  UBOOT_DEVICE_NAME := fine3399-rk3399
+  UBOOT_DEVICE_NAME := fine-3399-rk3399
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
 TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
