@@ -1,9 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-only
 #
-# Copyright (C) 2020 Sarah Maedel
-
-# FIT will be loaded at 0x02080000. Leave 16M for that, align it to 2M and load the kernel after it.
-KERNEL_LOADADDR := 0x03200000
+# Copyright (C) 2020 Tobias Maedel
 
 define Device/friendlyarm_nanopi-r2s
   DEVICE_VENDOR := FriendlyARM
@@ -86,6 +83,16 @@ define Device/rk3399_r08
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
 TARGET_DEVICES += rk3399_r08
+
+define Device/rk3399_tpm312
+  DEVICE_VENDOR := RK3399
+  DEVICE_MODEL := TPM312
+  SOC := rk3399
+  SUPPORTED_DEVICES := rk3399,tpm312
+  UBOOT_DEVICE_NAME := tpm312-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+endef
+TARGET_DEVICES += rk3399_tpm312
 
 define Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
