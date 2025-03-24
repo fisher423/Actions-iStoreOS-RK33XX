@@ -23,6 +23,86 @@ define U-Boot/Default
 endef
 
 
+# RK3308 boards
+
+define U-Boot/evb-rk3308
+  BUILD_SUBTARGET:=armv8
+  NAME:=RK3308 EVB
+  BUILD_DEVICES:= \
+    rockchip_rk3308_evb
+  DEPENDS:=+PACKAGE_u-boot-evb-rk3308:trusted-firmware-a-rk3308
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=$(RK3308_ATF)
+  DDR:=$(RK3308_DDR)
+endef
+
+define U-Boot/armsom-rk3308
+  BUILD_SUBTARGET:=armv8
+  NAME:=ArmSoM RK3308 boards
+  BUILD_DEVICES:= \
+    armsom_p2-pro
+  DEPENDS:=+PACKAGE_u-boot-armsom-rk3308:trusted-firmware-a-rk3308
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=$(RK3308_ATF)
+  DDR:=$(RK3308_DDR_UART2)
+endef
+
+
+# RK3328 boards
+
+define U-Boot/nanopi-r2s-rk3328
+  BUILD_SUBTARGET:=armv8
+  NAME:=NanoPi R2S
+  BUILD_DEVICES:= \
+    friendlyarm_nanopi-r2s
+  DEPENDS:=+PACKAGE_u-boot-nanopi-r2s-rk3328:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3328_bl31.elf
+  OF_PLATDATA:=$(1)
+endef
+
+
+# RK3399 boards
+
+define U-Boot/nanopi-r4s-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=NanoPi R4S
+  BUILD_DEVICES:= \
+    friendlyarm_nanopi-r4s
+  DEPENDS:=+PACKAGE_u-boot-nanopi-r4s-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
+endef
+
+define U-Boot/nanopi-r4se-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=NanoPi R4SE
+  BUILD_DEVICES:= \
+    friendlyarm_nanopi-r4se
+  DEPENDS:=+PACKAGE_u-boot-nanopi-r4se-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
+endef
+
+define U-Boot/rock-pi-4-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=Rock Pi 4
+  BUILD_DEVICES:= \
+    radxa_rock-pi-4a
+  DEPENDS:=+PACKAGE_u-boot-rock-pi-4-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
+endef
+
+define U-Boot/rockpro64-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=RockPro64
+  BUILD_DEVICES:= \
+    pine64_rockpro64
+  DEPENDS:=+PACKAGE_u-boot-rockpro64-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
+endef
 
 define U-Boot/r08-rk3399
   BUILD_SUBTARGET:=armv8
@@ -34,15 +114,34 @@ define U-Boot/r08-rk3399
   ATF:=rk3399_bl31.elf
 endef
 
+define U-Boot/tpm312-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=RK3399 TPM312
+  BUILD_DEVICES:= \
+    rk3399_tpm312
+  DEPENDS:=+PACKAGE_u-boot-tpm312-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
+endef
+
 define U-Boot/fine3399-rk3399
-  $(U-Boot/rk3399/Default)
+  BUILD_SUBTARGET:=armv8
   NAME:=Fine 3399
   BUILD_DEVICES:= \
     rumu3f_fine-3399
+  DEPENDS:=+PACKAGE_u-boot-fine-3399-rk3399:arm-trusted-firmware-rockchip
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
+  ATF:=rk3399_bl31.elf
 endef
 
 UBOOT_TARGETS := \
   fine3399-rk3399 \
+  evb-rk3308 \
+  nanopi-r4s-rk3399 \
+  nanopi-r4se-rk3399 \
+  rock-pi-4-rk3399 \
+  rockpro64-rk3399 \
+  nanopi-r2s-rk3328 \
   r08-rk3399 \
   tpm312-rk3399
 
