@@ -46,15 +46,15 @@ endef
 TARGET_DEVICES += rk3399_r08" >> target/linux/rockchip/image/armv8.mk
 
 
-echo -e "\\ndefine Device/rk3399_tpm312
-  DEVICE_VENDOR := RK3399
-  DEVICE_MODEL := TPM312
+echo -e "\\ndefine Device/rumu3f_fine-3399
+  DEVICE_VENDOR := RUMU3F
+  DEVICE_MODEL := Fine 3399
   SOC := rk3399
-  SUPPORTED_DEVICES := rk3399,tpm312
-  UBOOT_DEVICE_NAME := tpm312-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  UBOOT_DEVICE_NAME := fine3399-rk3399
+  BOOT_FLOW := pine64-bin
+  DEVICE_PACKAGES := kmod-r8169 wpad-openssl
 endef
-TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
+TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
 
 
 
