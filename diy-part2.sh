@@ -45,6 +45,15 @@ echo -e "\\ndefine Device/rk3399_r08
 endef
 TARGET_DEVICES += rk3399_r08" >> target/linux/rockchip/image/armv8.mk
 
+echo -e "\\ndefine Device/rk3399_tpm312
+  DEVICE_VENDOR := RK3399
+  DEVICE_MODEL := TPM312
+  SOC := rk3399
+  SUPPORTED_DEVICES := rk3399,tpm312
+  UBOOT_DEVICE_NAME := tpm312-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+endef
+TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
 
 echo -e "\\ndefine Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
@@ -93,6 +102,7 @@ cp -f $GITHUB_WORKSPACE/configfiles/rk3399-opp.dtsi target/linux/rockchip/armv8/
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-op1-opp.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-op1-opp.dtsi
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-r08.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-r08.dts
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine-3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-tpm312.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-tpm312.dts
 
 
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399.dtsi
@@ -100,6 +110,7 @@ cp -f $GITHUB_WORKSPACE/configfiles/rk3399-opp.dtsi package/boot/uboot-rockchip/
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-op1-opp.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-op1-opp.dtsi
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-r08.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-r08.dts
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-tpm312.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-tpm312.dts
 
 
 
