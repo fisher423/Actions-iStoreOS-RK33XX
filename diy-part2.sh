@@ -62,6 +62,7 @@ echo -e "\\ndefine Device/rumu3f_fine-3399
   UBOOT_DEVICE_NAME := fine3399-rk3399
   BOOT_FLOW := pine64-bin
   DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
 endef
 TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
 
