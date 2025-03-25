@@ -12,10 +12,6 @@ PKG_HASH:=skip
 
 PKG_MAINTAINER:=Tobias Maedel <openwrt@tbspace.de>
 
-
-UBOOT_USE_BINMAN:=1
-UBOOT_USE_INTREE_DTC:=1
-
 include $(INCLUDE_DIR)/u-boot.mk
 include $(INCLUDE_DIR)/package.mk
 include ../arm-trusted-firmware-rockchip-vendor/atf-version.mk
