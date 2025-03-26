@@ -130,14 +130,15 @@ define U-Boot/tpm312-rk3399
 endef
 
 define U-Boot/fine-3399-rk3399
-  BUILD_SUBTARGET:=armv8
+  $(U-Boot/rk3399/Default)
   NAME:=Fine 3399
   BUILD_DEVICES:= \
     rumu3f_fine-3399
-  DEPENDS:=+PACKAGE_u-boot-fine-3399-rk3399:arm-trusted-firmware-rockchip
-  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip
-  ATF:=rk3399_bl31.elf
+  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399
+  ATF:=rk3399_bl31_v1.36.elf
+  USE_RKBIN:=1
 endef
+
 
 UBOOT_TARGETS := \
   fine-3399-rk3399 \
