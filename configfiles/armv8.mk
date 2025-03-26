@@ -96,11 +96,10 @@ TARGET_DEVICES += rk3399_tpm312
 
 define Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
-  DEVICE_MODEL := FINE 3399
-  DEVICE_VARIANT := 4GB LPDDR4
+  DEVICE_MODEL := Fine 3399
   SOC := rk3399
-  UBOOT_DEVICE_NAME := fine-3399-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-r8168
+  UBOOT_DEVICE_NAME := fine3399-rk3399
+  BOOT_FLOW := pine64-bin
+  DEVICE_PACKAGES := kmod-r8169
 endef
 TARGET_DEVICES += rumu3f_fine-3399
