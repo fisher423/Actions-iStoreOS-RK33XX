@@ -138,7 +138,7 @@ define U-Boot/fine3399-rk3399
 endef
 
 UBOOT_TARGETS := \
-  fine3399-rk3399 \
+  fine-3399-rk3399 \
   evb-rk3308 \
   nanopi-r4s-rk3399 \
   nanopi-r4se-rk3399 \
