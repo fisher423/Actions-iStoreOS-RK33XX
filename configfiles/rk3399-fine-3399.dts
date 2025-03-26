@@ -8,8 +8,8 @@
 #include "rk3399-op1-opp.dtsi"
 
 / {
-	model = "RUMU3F Fine3399";
-	compatible = "rockchip,rk3399";
+	model = "RUMU3F Fine 3399";
+	compatible = "RUMU3F,Fine-3399", "rockchip,rk3399";
 
 	aliases {
 		ethernet0 = &gmac;
