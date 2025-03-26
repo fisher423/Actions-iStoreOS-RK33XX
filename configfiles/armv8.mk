@@ -98,6 +98,7 @@ define Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
   DEVICE_MODEL := Fine 3399
   SOC := rk3399
+  SUPPORTED_DEVICES := rk3399,fine-3399
   UBOOT_DEVICE_NAME := fine-3399-rk3399
   BOOT_FLOW := pine64-bin
   DEVICE_PACKAGES := kmod-r8169
