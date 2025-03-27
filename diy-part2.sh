@@ -67,6 +67,9 @@ echo -e "\\ndefine Device/rumu3f_fine-3399
 endef
 TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
 
+ls target/linux/rockchip/image
+cat target/linux/rockchip/image/armv8.mk
+
 
 
 
