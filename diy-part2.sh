@@ -32,6 +32,10 @@ sed -i '/CONFIG_IDENT_STRING/d' .config
 echo 'CONFIG_IDENT_STRING=" OpenWrt"' >> .config
 
 
+echo 'CONFIG_ANDROID_BOOT_IMAGE=y' >> configs/fine-3399-rk3399_defconfig
+echo 'CONFIG_FIT=y' >> configs/fine-3399-rk3399_defconfig
+
+
 
 # 移植以下机型
 # RK3399 R08
