@@ -27,7 +27,9 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 # ls package/base-files/files/etc/
 
 
-
+# 修改编译脚本中的追加命令，避免重复添加
+sed -i '/CONFIG_IDENT_STRING/d' .config
+echo 'CONFIG_IDENT_STRING=" OpenWrt"' >> .config
 
 
 
