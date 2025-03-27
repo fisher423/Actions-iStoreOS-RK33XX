@@ -90,7 +90,7 @@ fi
 
 # 复制defconfig配置文件到u-boot目录里面
 cp -f $GITHUB_WORKSPACE/configfiles/r08-rk3399_defconfig package/boot/uboot-rockchip/src/configs/r08-rk3399_defconfig
-cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine-3399-rk3399_defconfig
+cp -f $GITHUB_WORKSPACE/configfiles/fine-3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine-3399-rk3399_defconfig
 cp -f $GITHUB_WORKSPACE/configfiles/tpm312-rk3399_defconfig package/boot/uboot-rockchip/src/configs/tpm312-rk3399_defconfig
 
 
