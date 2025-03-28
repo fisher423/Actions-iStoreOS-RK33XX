@@ -27,39 +27,14 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 # ls package/base-files/files/etc/
 
 
-# 修改编译脚本中的追加命令，避免重复添加
-sed -i '/CONFIG_IDENT_STRING/d' .config
-echo 'CONFIG_IDENT_STRING=" OpenWrt"' >> .config
 
 
-echo 'CONFIG_ANDROID_BOOT_IMAGE=y' >> configs/fine-3399-rk3399_defconfig
-echo 'CONFIG_FIT=y' >> configs/fine-3399-rk3399_defconfig
+# echo 'CONFIG_ANDROID_BOOT_IMAGE=y' >> configs/fine-3399-rk3399_defconfig
+# echo 'CONFIG_FIT=y' >> configs/fine-3399-rk3399_defconfig
 
 
 
 # 移植以下机型
-# RK3399 R08
-# RK3399 TPM312
-
-echo -e "\\ndefine Device/rk3399_r08
-  DEVICE_VENDOR := RK3399
-  DEVICE_MODEL := R08
-  SOC := rk3399
-  SUPPORTED_DEVICES := rk3399,r08
-  UBOOT_DEVICE_NAME := r08-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-endef
-TARGET_DEVICES += rk3399_r08" >> target/linux/rockchip/image/armv8.mk
-
-echo -e "\\ndefine Device/rk3399_tpm312
-  DEVICE_VENDOR := RK3399
-  DEVICE_MODEL := TPM312
-  SOC := rk3399
-  SUPPORTED_DEVICES := rk3399,tpm312
-  UBOOT_DEVICE_NAME := tpm312-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-endef
-TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
 
 echo -e "\\ndefine Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
@@ -80,8 +55,8 @@ cat target/linux/rockchip/image/armv8.mk
 
 
 # 网口配置为旁路由模式，注释下面两个网口模式替换命令后，网口模式会变成主路由模式，不知道什么原因理论应该全部变成旁路由模式的，但对于RK3399 R08机型网口模式还是主路由模式，没深度研究过，你们自己测试然后修改吧。
-sed -i "s/armsom,p2pro)/armsom,p2pro|\\\\\n	rk3399,r08)/g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
-sed -i "s/rk3399,r08)/rk3399,r08|\\\\\n	rk3399,tpm312)/g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+# sed -i "s/armsom,p2pro)/armsom,p2pro|\\\\\n	rk3399,r08)/g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+# sed -i "s/rk3399,r08)/rk3399,r08|\\\\\n	rk3399,tpm312)/g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
 
 
 
@@ -101,27 +76,31 @@ fi
 
 
 # 复制defconfig配置文件到u-boot目录里面
-cp -f $GITHUB_WORKSPACE/configfiles/r08-rk3399_defconfig package/boot/uboot-rockchip/src/configs/r08-rk3399_defconfig
+
 cp -f $GITHUB_WORKSPACE/configfiles/fine-3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine-3399-rk3399_defconfig
-cp -f $GITHUB_WORKSPACE/configfiles/tpm312-rk3399_defconfig package/boot/uboot-rockchip/src/configs/tpm312-rk3399_defconfig
+
 
 
 
 # 复制对应的dts设备树文件到指定目录和u-boot目录里面
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399.dtsi
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-opp.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-opp.dtsi
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-op1-opp.dtsi target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-op1-opp.dtsi
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-r08.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-r08.dts
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine-3399.dts
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-tpm312.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-tpm312.dts
+
 
 
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399.dtsi
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-opp.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-opp.dtsi
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-op1-opp.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-op1-opp.dtsi
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-r08.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-r08.dts
+
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399.dts
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-tpm312.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-tpm312.dts
+
 
 
 
