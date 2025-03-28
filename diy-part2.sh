@@ -49,12 +49,14 @@ cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399.dts package/boot/uboot-rockchip/src/dts/upstream/src/arm64/rockchip/rk3399-fine3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/dts/upstream/src/arm64/rockchip/rk3399-fine-3399.dts
 
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399.dts
+
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399-u-boot.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399-u-boot.dtsi
 
 
 
