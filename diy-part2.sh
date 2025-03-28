@@ -7,71 +7,26 @@
 # Blog: https://p3terx.com
 #===============================================
 
-# 删除引起iproute2依赖编译报错的补丁
-[ -e package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch ] && rm -f package/libs/elfutils/patches/999-fix-odd-build-oot-kmod-fail.patch
-
-# update ubus git HEAD
-cp -f $GITHUB_WORKSPACE/configfiles/ubus_Makefile package/system/ubus/Makefile
-
-# 近期istoreos网站文件服务器不稳定，临时增加一个自定义下载网址
-sed -i "s/push @mirrors, 'https:\/\/mirror2.openwrt.org\/sources';/&\\npush @mirrors, 'https:\/\/github.com\/xiaomeng9597\/files\/releases\/download\/iStoreosFile';/g" scripts/download.pl
-
-
-# 修改uhttpd配置文件，启用nginx
-# sed -i "/.*uhttpd.*/d" .config
-# sed -i '/.*\/etc\/init.d.*/d' package/network/services/uhttpd/Makefile
-# sed -i '/.*.\/files\/uhttpd.init.*/d' package/network/services/uhttpd/Makefile
-sed -i "s/:80/:81/g" package/network/services/uhttpd/files/uhttpd.config
-sed -i "s/:443/:4443/g" package/network/services/uhttpd/files/uhttpd.config
-cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
-# ls package/base-files/files/etc/
-
-
-
-
-
 
 # 移植以下机型
-# RK3399 R08
-# RK3399 TPM312
-
-echo -e "\\ndefine Device/rk3399_r08
-  DEVICE_VENDOR := RK3399
-  DEVICE_MODEL := R08
-  SOC := rk3399
-  SUPPORTED_DEVICES := rk3399,r08
-  UBOOT_DEVICE_NAME := r08-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-endef
-TARGET_DEVICES += rk3399_r08" >> target/linux/rockchip/image/armv8.mk
-
-echo -e "\\ndefine Device/rk3399_tpm312
-  DEVICE_VENDOR := RK3399
-  DEVICE_MODEL := TPM312
-  SOC := rk3399
-  SUPPORTED_DEVICES := rk3399,tpm312
-  UBOOT_DEVICE_NAME := tpm312-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-endef
-TARGET_DEVICES += rk3399_tpm312" >> target/linux/rockchip/image/armv8.mk
+# rumu3f_fine-3399
 
 echo -e "\\ndefine Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
   DEVICE_MODEL := FINE 3399
-  DEVICE_VARIANT := 4GB LPDDR4
   SOC := rk3399
-  UBOOT_DEVICE_NAME := fine-3399-rk3399
-  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-bin | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-r8168
+  UBOOT_DEVICE_NAME := fine3399-rk3399
+  BOOT_FLOW := pine64-bin
+  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
 endef
 TARGET_DEVICES += rumu3f_fine-3399" >> target/linux/rockchip/image/armv8.mk
 
+ls target/linux/rockchip/image
+cat target/linux/rockchip/image/armv8.mk
 
 
 
-# 网口配置为旁路由模式，注释下面两个网口模式替换命令后，网口模式会变成主路由模式，不知道什么原因理论应该全部变成旁路由模式的，但对于RK3399 R08机型网口模式还是主路由模式，没深度研究过，你们自己测试然后修改吧。
-sed -i "s/armsom,p2pro)/armsom,p2pro|\\\\\n	rk3399,r08)/g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
-sed -i "s/rk3399,r08)/rk3399,r08|\\\\\n	rk3399,tpm312)/g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+
 
 
 
