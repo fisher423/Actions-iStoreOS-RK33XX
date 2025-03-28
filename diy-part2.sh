@@ -33,7 +33,7 @@ ls target/linux/rockchip/dts/rk3588
 cat target/linux/rockchip/image/rk35xx.mk
 
 
-# 复制和修改u-boot压缩包SHA256校验码，编译失败时注意看是不是这个引起的。
+# 复制package/boot/uboot-rockchip/Makefile
 cp -f $GITHUB_WORKSPACE/configfiles/uboot_Makefile package/boot/uboot-rockchip/Makefile
 
 ls package/boot/uboot-rockchip
