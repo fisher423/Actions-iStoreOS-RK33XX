@@ -46,6 +46,10 @@ cat package/boot/uboot-rockchip/Makefile
 
 cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine3399-rk3399_defconfig
 
+cp -f $GITHUB_WORKSPACE/configfiles/900-arm-add-dts-files.patch package/boot/uboot-rockchip/patches/900-arm-add-dts-files.patch
+
+cp -f $GITHUB_WORKSPACE/configfiles/900-arm-add-dts-files.patch package/boot/uboot-rockchip/patches/900-arm-add-dts-files.patch
+
 
 
 
