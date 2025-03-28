@@ -26,11 +26,7 @@ cat target/linux/rockchip/image/armv8.mk
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3588-lemonpi-pi1.dts target/linux/rockchip/dts/rk3588
 
-ls target/linux/rockchip/dts/rk3588
-
-cat target/linux/rockchip/image/rk35xx.mk
 
 
 # 复制package/boot/uboot-rockchip/Makefile
@@ -61,8 +57,3 @@ cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rock
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399.dts
 
 cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399-u-boot.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399-u-boot.dtsi
-
-
-
-
-
