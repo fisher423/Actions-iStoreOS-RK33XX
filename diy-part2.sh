@@ -48,7 +48,7 @@ cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot
 
 cp -f $GITHUB_WORKSPACE/configfiles/900-arm-add-dts-files.patch package/boot/uboot-rockchip/patches/900-arm-add-dts-files.patch
 
-cp -f $GITHUB_WORKSPACE/configfiles/900-arm-add-dts-files.patch package/boot/uboot-rockchip/patches/900-arm-add-dts-files.patch
+cp -f $GITHUB_WORKSPACE/configfiles/900-arm-add-dts-files.patch target/linux/rockchip/patches-6.6/900-arm64-boot-add-dts-files.patch
 
 
 
