@@ -33,22 +33,28 @@ ls target/linux/rockchip/dts/rk3588
 cat target/linux/rockchip/image/rk35xx.mk
 
 
+# 复制和修改u-boot压缩包SHA256校验码，编译失败时注意看是不是这个引起的。
+cp -f $GITHUB_WORKSPACE/configfiles/uboot_Makefile package/boot/uboot-rockchip/Makefile
+
+ls package/boot/uboot-rockchip
+cat package/boot/uboot-rockchip/Makefile
 
 
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine-3399-rk3399_defconfig
+
+cp -f $GITHUB_WORKSPACE/configfiles/fine3399-rk3399_defconfig package/boot/uboot-rockchip/src/configs/fine3399-rk3399_defconfig
 
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts target/linux/rockchip/armv8/files/arch/arm64/boot/dts/rockchip/rk3399-fine-3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399.dts package/boot/uboot-rockchip/src/dts/upstream/src/arm64/rockchip/rk3399-fine3399.dts
 
 
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine-3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine-3399.dts
+cp -f $GITHUB_WORKSPACE/configfiles/rk3399-fine3399.dts package/boot/uboot-rockchip/src/arch/arm/dts/rk3399-fine3399.dts
 
 
 
