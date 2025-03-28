@@ -36,7 +36,7 @@ cp -a $GITHUB_WORKSPACE/configfiles/etc/* package/base-files/files/etc/
 
 # 移植以下机型
 
-define Device/rumu3f_fine-3399
+echo -e "\\ndefine Device/rumu3f_fine-3399
   DEVICE_VENDOR := RUMU3F
   DEVICE_MODEL := Fine 3399
   SOC := rk3399
